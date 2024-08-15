@@ -2,6 +2,7 @@ package com.bbarb75.jobtrackingapp.controllers;
 
 import com.bbarb75.jobtrackingapp.entity.JobApp;
 import com.bbarb75.jobtrackingapp.service.JobAppService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,9 @@ public class MainScreenController {
     }
 
     @GetMapping("/mainscreen")
-    public String listJobs(Model model) {
+    public String listJobs(Model model, @Param("jobkeyword") String jobkeyword) {
+        List<JobApp> jobList=jobAppService.listAll(jobkeyword);
+        model.addAttribute("jobList", jobList);
         List<JobApp> jobAppList = jobAppService.findAll();
         model.addAttribute("jobAppList", jobAppList);
         return "mainscreen";

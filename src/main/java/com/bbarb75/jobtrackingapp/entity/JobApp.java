@@ -2,12 +2,14 @@ package com.bbarb75.jobtrackingapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Table(name="Jobs")
 public class JobApp implements Serializable {
 
     //fields
