@@ -7,23 +7,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
-public class AddJobController {
+public class DeleteJobController {
     @Autowired
     private JobAppService jobAppService;
 
-    public AddJobController(JobAppService jobAppService) {
+    public DeleteJobController(JobAppService jobAppService) {
         this.jobAppService = jobAppService;
     }
 
-    @GetMapping("/addjob")
-    public String addJob(@Validated @ModelAttribute("jobApp") JobApp jobApp, Model model) {
-        model.addAttribute("jobApp", jobApp);
-        return "addjob";
+
+
+    @GetMapping("/deletejob")
+    public String deleteJob(@Validated @RequestParam("appNum") int theAppNum, Model model) {
+        //Finish this next
+        JobAppService repo = jobAppService;
+        JobApp jobApp = repo.findById(theAppNum);
+        //if statement for deletion
+        repo.deleteById(theAppNum);
+        return "confirmdeletejob";
     }
-
-
-
 }
