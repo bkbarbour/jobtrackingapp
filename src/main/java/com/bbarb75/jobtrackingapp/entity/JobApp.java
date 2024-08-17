@@ -1,9 +1,8 @@
 package com.bbarb75.jobtrackingapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,9 +13,11 @@ public class JobApp implements Serializable {
 
     //fields
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int appNum;
     private String companyName;
     private String experienceLevel;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateApplied;
     private String sentiment;
     private String coverLetter;

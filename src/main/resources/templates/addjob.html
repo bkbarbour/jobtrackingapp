@@ -8,11 +8,18 @@
 <body>
 <h1>Enter job application details below</h1>
 <form action="#" th:action="@{/addjob}" th:object="${jobApp}" method="POST">
-<p>Application Number: <input type="text" th:field="*{companyName}" placeholder="Company Name" class="companyNameForm"/> </p>
+<!--<p>App Num: <input type="number" th:field="*{appNum}" placeholder="App Num" class="appNumForm"/> </p> -->
+    <p><input type="hidden" th:field="*{appNum}"/></p>
+<p>Company Name: <input type="text" th:field="*{companyName}" placeholder="Company Name" class="companyNameForm"/> </p>
+    <p th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}">Com Error</p>
 <p>Experience Level: <input type="text" th:field="*{experienceLevel}" placeholder="New Grad/Junior/Entry" class="experienceLevelForm"/> </p>
-<p>Date Applied: <input type="text" th:field="*{dateApplied}" placeholder="MM/DD/YY" class="dateAppliedForm"/> </p> <!-- change to date picker-->
+    <p th:if="${#fields.hasErrors('experienceLevel')}" th:errors="*{experienceLevel}">Exp Error</p>
+<p>Date Applied: <input type="date" th:field="*{dateApplied}" placeholder="MM/DD/YY" class="dateAppliedForm"/> </p> <!-- change to date picker-->
+    <p th:if="${#fields.hasErrors('dateApplied')}" th:errors="*{dateApplied}">Date Error</p>
 <p>Sentiment: <input type="text" th:field="*{sentiment}" placeholder="Positive/Negative/Pessimistic" class="sentiment"/> </p>
+    <p th:if="${#fields.hasErrors('sentiment')}" th:errors="*{sentiment}">Sent Error</p>
 <p>Cover Letter Created: <input type="text" th:field="*{coverLetter}" placeholder="Yes/No" class="coverLetter"/> </p>
+    <p th:if="${#fields.hasErrors('coverLetter')}" th:errors="*{coverLetter}">CL Error</p>
 
 <p><input type="submit" value="Submit"/></p>
 </form>

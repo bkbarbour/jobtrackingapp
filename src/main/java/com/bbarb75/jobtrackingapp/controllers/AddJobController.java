@@ -28,13 +28,13 @@ public class AddJobController {
     }
 
     @PostMapping("/addjob")
-    public String submitJob(@Validated @ModelAttribute("jobApp") JobApp jobApp, BindingResult bindingResult, Model model) {
+    public String submitJob(@ModelAttribute("jobApp") JobApp jobApp, BindingResult bindingResult, Model model) {
         model.addAttribute("jobApp", jobApp);
         if (bindingResult.hasErrors()) {
             return "addjob";
         }else{
             jobAppService.save(jobApp);
-            return "mainscreen";
+            return "jobaddconfirm";
         }
     }
 
