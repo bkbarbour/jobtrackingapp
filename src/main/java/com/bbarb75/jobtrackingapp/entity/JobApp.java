@@ -14,12 +14,12 @@ public class JobApp implements Serializable {
 
     //fields
     @Id
-    int appNum;
-    String companyName;
-    String experienceLevel;
-    Date dateApplied;
-    String sentiment;
-    String coverLetter;
+    private int appNum;
+    private String companyName;
+    private String experienceLevel;
+    private Date dateApplied;
+    private String sentiment;
+    private String coverLetter;
 
     //no arg constructor
     public JobApp() {

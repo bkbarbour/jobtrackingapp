@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add Job</title>
 </head>
 <body>
+<h1>Enter job application details below</h1>
+<form action="#" th:action="@{/addjob}" th:object="${jobApp}" method="POST">
+<p>Application Number: <input type="text" th:field="*{companyName}" placeholder="Company Name" class="companyNameForm"/> </p>
+<p>Experience Level: <input type="text" th:field="*{experienceLevel}" placeholder="New Grad/Junior/Entry" class="experienceLevelForm"/> </p>
+<p>Date Applied: <input type="text" th:field="*{dateApplied}" placeholder="MM/DD/YY" class="dateAppliedForm"/> </p> <!-- change to date picker-->
+<p>Sentiment: <input type="text" th:field="*{sentiment}" placeholder="Positive/Negative/Pessimistic" class="sentiment"/> </p>
+<p>Cover Letter Created: <input type="text" th:field="*{coverLetter}" placeholder="Yes/No" class="coverLetter"/> </p>
 
+<p><input type="submit" value="Submit"/></p>
+</form>
+<a href="http://localhost:8080">Return to main screen</a>
 </body>
 </html>
