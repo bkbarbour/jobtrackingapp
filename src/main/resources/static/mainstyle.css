@@ -77,7 +77,16 @@ input[type=submit]:focus{
     transition: 0.7s;
 }
 table, th, td{
-    border: 1px solid;
+    text-align: center;
+    border: 8px double;
+    border-color: #3A445D;
+    border-radius: 10px;
+
+
+}
+th, td{
+    padding: 8px;
+    border: 2px solid;
 
 }
 
@@ -86,14 +95,29 @@ table, th, td{
     margin-right: auto;
 }*/
 
+
+
+
+
+
 tr:nth-child(even){
-    background-color: #f2f2f2;
+    background-color: #928779;
+}
+
+tr:nth-child(odd){
+    background-color: #D4D2A5;
 }
 
 h1{
     text-align: center;
+    color: #928779
 }
 
 h2{
     text-align: center;
+    color: #928779
+}
+
+body{
+    background-color: #FCDEBE;
 }

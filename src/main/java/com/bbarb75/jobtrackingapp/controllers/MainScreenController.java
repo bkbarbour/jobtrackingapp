@@ -22,10 +22,18 @@ public class MainScreenController {
 
     @GetMapping("/mainscreen")
     public String listJobs(Model model, @Param("jobkeyword") String jobkeyword) {
-        List<JobApp> jobList=jobAppService.listAll(jobkeyword);
-        model.addAttribute("jobList", jobList);
-        List<JobApp> jobAppList = jobAppService.findAll();
-        model.addAttribute("jobAppList", jobAppList);
+        List<JobApp> jobList;
+
+        if (jobkeyword != null && !jobkeyword.isEmpty()) {
+            // Filter the list based on the keyword
+            jobList = jobAppService.listAll(jobkeyword);
+        } else {
+            // Display the full list if no keyword is provided
+            jobList = jobAppService.findAll();
+        }
+
+        model.addAttribute("jobAppList", jobList); // Pass the list (filtered or full) to the view
+        model.addAttribute("jobkeyword", jobkeyword); // Pass the keyword back to the view
         return "mainscreen";
     }
 }

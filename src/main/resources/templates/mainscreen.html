@@ -12,27 +12,40 @@
     function clearSearch(){
         window.location = "[[@{/}]]"
     }
+
+    function totalApps(){
+        var table = document.getElementById('appTable');
+        var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
+        document.getElementById('appCount').textContent = "You have " + rows + " job application(s).";
+
+
+    }
+    window.onload=function(){
+        totalApps();
+    }
 </script>
 <div class="container">
     <h1>Job Application Tracker</h1>
     <hr>
     <h2>Jobs</h2>
     <form th:action="@{/mainscreen}">
-        <span style="font-size: 20px">Filter:</span> <input type="text" name="jobkeyword" id="jobkeyword" size="50" th:value="${jobkeyword}" required />
+        <span style="font-size: 20px" >Search By Company Name:</span> <input type="text" name="jobkeyword" id="jobkeyword" size="50" th:value="${jobkeyword}" required />
         <input type="submit" value="Search"/>
         <input type="button" value="Clear" id="btnClearJob" onclick="clearSearch()"/>
         <a th:href="@{/addjob}" class="addJobButton">Add Job</a>
+        <hr>
     </form>
     <br><br>
 
-    <table class="jobTable">
+    <table class="jobTable" id="appTable">
         <thead class="thead-dark">
+
         <tr>
             <th>App Number</th>
             <th>Company Name</th>
             <th>Experience Level</th>
             <th>Date Applied</th>
-            <th>Sentiment? (Positive/Negative)</th>
+            <th>Sentiment? (Optimistic/Pessimistic)</th>
             <th>Cover letter submitted?</th>
             <th>Action</th>
 
@@ -43,13 +56,17 @@
             <td th:text="${tempJob.appNum}">1</td>
             <td th:text="${tempJob.companyName}">1</td>
             <td th:text="${tempJob.experienceLevel}">1</td>
-            <td th:text="${tempJob.dateApplied}">1</td>
+            <td th:text="${#dates.format(tempJob.dateApplied, 'yyyy-MM-dd')}">1</td>
             <td th:text="${tempJob.sentiment}">1</td>
             <td th:text="${tempJob.coverLetter}">1</td>
             <td> <a th:href="@{deletejob(appNum=${tempJob.appNum})}" class="btn btn-primary btn-sm mb-3" onclick="if (!(confirm('Are you use you want to delete this job application?')))return false">Delete</a></td>
         </tr>
         </tbody>
     </table>
+    <hr>
+    <h2 id="appCount">You have 0 job applications.</h2>
+
+
 
 
 
