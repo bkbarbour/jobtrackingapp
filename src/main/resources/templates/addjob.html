@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Job</title>
+    <link rel="stylesheet" th:href="@{addjobstyle.css}">
 </head>
 <body>
-<h1>Enter job application details below</h1>
+<h1>Enter your hopeful new beginning below</h1>
 <form action="#" th:action="@{/addjob}" th:object="${jobApp}" method="POST">
 <!--<p>App Num: <input type="number" th:field="*{appNum}" placeholder="App Num" class="appNumForm"/> </p> -->
     <p><input type="hidden" th:field="*{appNum}"/></p>

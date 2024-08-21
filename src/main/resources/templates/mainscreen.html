@@ -25,9 +25,9 @@
     }
 </script>
 <div class="container">
-    <h1>Job Application Tracker</h1>
-    <hr>
-    <h2>Jobs</h2>
+    <h1>Job Application Tracker <br/> <span style="font-size: 22px">A place to keep track of it all</span></h1>
+
+    <!--<h2>Job Search</h2>-->
     <form th:action="@{/mainscreen}">
         <span style="font-size: 20px" >Search By Company Name:</span> <input type="text" name="jobkeyword" id="jobkeyword" size="50" th:value="${jobkeyword}" required />
         <input type="submit" value="Search"/>
