@@ -21,6 +21,11 @@ public class JobApp implements Serializable {
     private Date dateApplied;
     private String sentiment;
     private String coverLetter;
+    private String location;
+
+
+
+
 
     //no arg constructor
     public JobApp() {
@@ -76,14 +81,33 @@ public class JobApp implements Serializable {
         this.coverLetter = coverLetter;
     }
 
+    public String getRemote() {
+        return remote;
+    }
+
+    public void setRemote(String remote) {
+        this.remote = remote;
+    }
+
+    private String remote;
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     //full constructor
-    public JobApp(int appNum, String companyName, String experienceLevel, Date dateApplied, String sentiment, String coverLetter) {
+    public JobApp(int appNum, String companyName, String experienceLevel, Date dateApplied, String sentiment, String coverLetter, String location, String remote) {
         this.appNum = appNum;
         this.companyName = companyName;
         this.experienceLevel = experienceLevel;
         this.dateApplied = dateApplied;
         this.sentiment = sentiment;
         this.coverLetter = coverLetter;
+        this.location = location;
+        this.remote = remote;
     }
 }

@@ -29,10 +29,11 @@
 
     <!--<h2>Job Search</h2>-->
     <form th:action="@{/mainscreen}">
-        <span style="font-size: 20px" >Search By Company Name:</span> <input type="text" name="jobkeyword" id="jobkeyword" size="50" th:value="${jobkeyword}" required />
+        <span style="font-size: 22px; font-weight: bold;" >Search By Company Name:</span> <input type="text" name="jobkeyword" id="jobkeyword" size="50" th:value="${jobkeyword}" required />
         <input type="submit" value="Search"/>
         <input type="button" value="Clear" id="btnClearJob" onclick="clearSearch()"/>
-        <a th:href="@{/addjob}" class="addJobButton">Add Job</a>
+        <!--<a th:href="@{/addjob}" class="addJobButton">Add Job</a>-->
+        <button onclick="location.href='addjob'" class="addJobButton">Add Job</button>
         <hr>
     </form>
     <br><br>
@@ -47,7 +48,10 @@
             <th>Date Applied</th>
             <th>Sentiment? (Optimistic/Pessimistic)</th>
             <th>Cover letter submitted?</th>
+            <th>Location</th>
+            <th>Remote?</th>
             <th>Action</th>
+
 
         </tr>
         </thead>
@@ -59,6 +63,8 @@
             <td th:text="${#dates.format(tempJob.dateApplied, 'yyyy-MM-dd')}">1</td>
             <td th:text="${tempJob.sentiment}">1</td>
             <td th:text="${tempJob.coverLetter}">1</td>
+            <td th:text="${tempJob.location}">1</td>
+            <td th:text="${tempJob.remote}">1</td>
             <td> <a th:href="@{deletejob(appNum=${tempJob.appNum})}" class="btn btn-primary btn-sm mb-3" onclick="if (!(confirm('Are you use you want to delete this job application?')))return false">Delete</a></td>
         </tr>
         </tbody>

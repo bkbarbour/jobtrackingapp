@@ -17,10 +17,14 @@
     <p th:if="${#fields.hasErrors('experienceLevel')}" th:errors="*{experienceLevel}">Exp Error</p>
 <p>Date Applied: <input type="date" th:field="*{dateApplied}" placeholder="MM/DD/YY" class="dateAppliedForm"/> </p> <!-- change to date picker-->
     <p th:if="${#fields.hasErrors('dateApplied')}" th:errors="*{dateApplied}">Date Error</p>
-<p>Sentiment: <input type="text" th:field="*{sentiment}" placeholder="Positive/Negative/Pessimistic" class="sentiment"/> </p>
+<p>Sentiment: <input type="text" th:field="*{sentiment}" placeholder="Optimistic/Pessimistic" class="sentiment"/> </p>
     <p th:if="${#fields.hasErrors('sentiment')}" th:errors="*{sentiment}">Sent Error</p>
 <p>Cover Letter Created: <input type="text" th:field="*{coverLetter}" placeholder="Yes/No" class="coverLetter"/> </p>
     <p th:if="${#fields.hasErrors('coverLetter')}" th:errors="*{coverLetter}">CL Error</p>
+<p>Location: <input type="text" th:field="*{location}" placeholder="Greensboro, NC" class="location"/> </p>
+    <p th:if="${#fields.hasErrors('location')}" th:errors="*{location}">Location Error</p>
+<p>Remote: <input type="text" th:field="*{remote}" placeholder="Yes/No" class="remote"/> </p>
+    <p th:if="${#fields.hasErrors('remote')}" th:errors="*{remote}">Remote Error</p>
 
 <p><input type="submit" value="Submit"/></p>
 </form>
