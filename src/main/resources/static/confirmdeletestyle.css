@@ -1,3 +1,6 @@
 body{
     background-image: url("sunrise.png");
+    color: darkslategray;
+    text-align: center;
+    font-size: 28px;
 }
