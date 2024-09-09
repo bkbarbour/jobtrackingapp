@@ -14,7 +14,7 @@ public class JobApp implements Serializable {
     //fields
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int appNum;
+    private int appNum; //will be hidden on front end, only for DB tracking
     private String companyName;
     private String experienceLevel;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

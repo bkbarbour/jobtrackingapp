@@ -22,10 +22,10 @@ public class DeleteJobController {
 
     @GetMapping("/deletejob")
     public String deleteJob(@Validated @RequestParam("appNum") int theAppNum, Model model) {
-        //Finish this next
+
         JobAppService repo = jobAppService;
         JobApp jobApp = repo.findById(theAppNum);
-        //if statement for deletion
+        //add if statement for deletion
         repo.deleteById(theAppNum);
         return "confirmdeletejob";
     }
